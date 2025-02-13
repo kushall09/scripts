@@ -1,0 +1,10 @@
+#!/bin/bash
+
+IP="8.8.8.8"
+COUNT=1 
+
+if ping -c $COUNT $IP > /dev/null 2>&1; then
+  notify-send -i /usr/share/icons/Catppuccin-SE/32x32@2x/status/online.svg "Net is UP"
+else
+  notify-send -i /usr/share/icons/Catppuccin-SE/32x32@2x/status/offline.svg "Net is DOWN"
+fi

@@ -1,0 +1,11 @@
+{
+        opt=$(printf "%s\n" "Play from ~/Music (offline)" "Stream A random song by Bob Dylan" "Cancel"| dmenu -c -g 1 -l 3)
+          if [ "$opt" = "Play from ~/Music (offline)" ]; then
+                music.sh -o
+        elif [ "$opt" = "Stream A random song by Bob Dylan" ]; then
+                music.sh -b
+        elif [ "$opt" = "Cancel" ]; then
+                return
+        fi
+}
+

@@ -1,0 +1,8 @@
+img="/home/kushal/.wallpaper/"
+image=$(ls $img | grep -E '(jpg|png)$' | sort -R | tail -1)
+set_wp=$(feh --bg-scale $img/$image)
+wall_dir="/home/kushal/.wallpaper/"
+
+$set_wp
+wal -i $img/$image
+

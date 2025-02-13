@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#import /tmp/ocr.png
+scrot -s /tmp/ocr.png
+tesseract /tmp/ocr.png /tmp/ocr
+rm /tmp/ocr.png
+
+data=$(cat /tmp/ocr.txt)
+
+xdg-open "https://duckduckgo.com/?q=$data"

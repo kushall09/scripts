@@ -1,0 +1,39 @@
+#!/bin/bash
+
+picname=$(date +%N|sed s/...$//).png
+not() {
+	notify-send -i "/usr/share/icons/Catppuccin-SE/64x64@2x/devices/computer-laptop.svg" "SS taken !"
+}
+check_dir() {
+  if [ ! -d ~/pix/ss/ ]
+  then
+    mkdir -p ~/pix/ss
+  fi
+}
+
+ss_without_selection() {
+        check_dir
+        import -window root ~/pix/ss/"$picname"
+	not
+}
+
+
+ss_with_selection() {
+        check_dir
+        import ~/pix/ss/"$picname"
+	not
+}
+
+while getopts 'ab' OPTION; do
+  case "$OPTION" in 
+    a) 
+      ss_without_selection ;;
+
+    b)
+      ss_with_selection ;;
+    ?)
+     exit 1
+    ;;
+
+esac 
+done
